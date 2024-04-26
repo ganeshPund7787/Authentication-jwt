@@ -8,15 +8,17 @@ import cookieParser from "cookie-parser";
 import { isAutheticated } from "./middleware/Autheticated.js";
 import cors from "cors"
 
+
+
+mongoConnection();
+const app = express();
+
 app.use(
     cors({
         options: [process.env.FORNTENDURL],
         methods: ["GET", "POST", "PUT", "DELETE"],
     })
 )
-
-mongoConnection();
-const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use("/user", routes);

@@ -11,13 +11,7 @@ import cors from "cors"
 mongoConnection();
 const app = express();
 
-app.use(
-    cors({
-        options: [process.env.FORNTENDURL],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true
-    })
-)
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 app.use("/user", routes);
